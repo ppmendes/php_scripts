@@ -1,9 +1,14 @@
 <?php
 
 $arrSQL = [
-            [0] = ['0x1'=> '0y1', '0x2'=> '0y2'],
-            [1] = ['1x1'=> '1y1', '1x2'=> '1y2'],
-            [1] = ['1x1'=> '1y1', '1x2'=> '1y2'] 
+            0 => ['id'=> '1', 'fk' => '123', 'user'=> 'EI'],
+            1 => ['id'=> '2', 'fk' => '123', 'user'=> 'PE'],
+            2 => ['id'=> '3', 'fk' => '356', 'user'=> 'AP'],
     ];
 
-print_r(...$arrSQL);
+$arrIndexadoPorFk = [];
+while($lineSQL = array_shift($arrSQL)){
+    $result[$lineSQL['fk']][] = $lineSQL;
+}
+
+print_r($result);
